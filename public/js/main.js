@@ -46,3 +46,5 @@ require([
                 // do nothing. Just prefetching.
         }
 );
+
+google.maps.visualRefresh = true;

@@ -26,11 +26,13 @@
 
         <div id="content">
             <section id="landing" class="subsection"> </section>
-            <section id="about" class="subsection"> </section>
+            <section id="about" class="subsection"> </section>            
         </div>
 
         <div class="spinner"> </div>
 
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script src="js/lib/infobox.js"></script>
         <script src="js/lib/dust-core-1.0.0.js"></script>
         <script data-main="js/main" src="js/lib/require.js"></script>
         <!--script type="text/javascript" src="cordova-2.2.0.js"></script-->

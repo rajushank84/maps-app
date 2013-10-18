@@ -1,14 +1,14 @@
 
     <div id="new">
         <form id="addNew" action="/doAddItem" method="POST">
-            <input type="text" placeholder="Add new item..." id="newItemName" name="name" />
+            <input type="text" placeholder="Post new ad..." id="newItemName" name="name" />
             <input type="submit" value="+" />
         </form>
     </div>
 
-    <ul id="items">
+   {! <ul id="items">
 
-        {#data.items}
+        #data.items}
             <li class="item">
                 <form method="POST" action="/doDeleteItem">
                     <span class="name">{name}</span>
@@ -17,5 +17,7 @@
                 </form>
             </li>
         {/data.items}
-    </ul>
+    </ul>!}
+
+    <div id="map-canvas">Loading, please wait...</div>        
 

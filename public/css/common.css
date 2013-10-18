@@ -3,8 +3,13 @@ body {
     font-size: 14px;
 }
 
+#map-canvas {
+    height: 100%;
+}
+
 body,
-h1 {
+h1,
+#map-canvas {
 
     margin: 0;
     padding: 0;
@@ -17,13 +22,12 @@ h1 {
     padding: 0;
     margin-right: auto; 
     margin-left: auto; 
+}
 
-    background-image: linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 50%, rgb(214,214,214) 75%);
-    background-image: -o-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 50%, rgb(214,214,214) 75%);
-    background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 50%, rgb(214,214,214) 75%);
-    background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 50%, rgb(214,214,214) 75%);
-    background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 50%, rgb(214,214,214) 75%);
-    background-image: -webkit-gradient(linear,left bottom, left top, color-stop(0, rgb(255,255,255)), color-stop(0.5, rgb(247,247,247)), color-stop(0.75, rgb(214,214,214)));        
+section#landing {
+    position: absolute;
+    height: 90%;
+    width: 100%;
 }
 
 .subsection {
@@ -48,4 +52,12 @@ h1 {
     top: 0;
     width: 100%;
     display: block;
+}
+
+.infoBox {
+    background-color: lightyellow;
+    padding: 5px 5px 5px 5px;
+    width: auto;
+    min-width: 100px;
+    max-width: 200px;
 }

@@ -21,6 +21,10 @@ define([
             if(callback) {
                 callback();
             }
+
+            if (this.afterRender) {
+                this.afterRender();
+            }
         },
 
         showTemplate: function() {
