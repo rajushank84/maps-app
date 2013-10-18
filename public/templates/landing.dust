@@ -6,18 +6,5 @@
         </form>
     </div>
 
-   {! <ul id="items">
-
-        #data.items}
-            <li class="item">
-                <form method="POST" action="/doDeleteItem">
-                    <span class="name">{name}</span>
-                    <input type="hidden" name="name" value="{name}" />
-                    <span class="del">&#10005;</span>
-                </form>
-            </li>
-        {/data.items}
-    </ul>!}
-
-    <div id="map-canvas">Loading, please wait...</div>        
-
+    <div id="map-canvas">Loading, please wait...</div>
+    

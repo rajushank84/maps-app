@@ -35,10 +35,7 @@
         <script src="js/lib/infobox.js"></script>
         <script src="js/lib/dust-core-1.0.0.js"></script>
         <script data-main="js/main" src="js/lib/require.js"></script>
-        <!--script type="text/javascript" src="cordova-2.2.0.js"></script-->
-        <!--<script type="text/javascript">
-            app.initialize();
-        </script>-->
+
     </body>
 
 </html> 
