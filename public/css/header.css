@@ -1,0 +1,40 @@
+#header {
+    background-color: rgb(214,214,214);
+    margin-bottom: 0;
+    min-height: 42px;
+}
+
+#header .logo {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.navbar h1 {
+    float: left;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.nav {
+    float: right;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.nav li.last {
+    border-right: none;
+}
+
+.nav li {
+    float: left;
+    list-style: none;
+    border-right: 1px solid gray;
+    padding: 0 10px 0 10px;
+}
+
+.nav li a {
+    color: gray;
+    text-decoration: none;
+
+}

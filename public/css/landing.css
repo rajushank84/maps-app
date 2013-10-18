@@ -1,0 +1,59 @@
+#items {
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+
+#items li {
+    position:relative;
+    height:30px;
+    list-style: none;
+    border-bottom: 1px solid lightgray;
+    margin: 10px;
+}
+
+#items li:hover .del {
+    display: inline-block;
+}
+
+#items li.last {
+    border: none;
+}
+
+#items .del {
+    position:absolute;
+    right:10px;
+
+    height:28px;
+    width:28px;
+    border-radius:20px;
+
+    background:#aaa;
+    font:22px Helvetica;
+    text-align:center;
+    color:#fff;
+    cursor:pointer;
+
+    display:none;
+}
+
+#new form {
+    padding:5px 0;
+    height:30px;
+}
+
+#new input[type="text"] {
+    float: left;
+    height: 25px;
+    margin: 0 5px;
+    padding: 0 3px;
+    width: 96%;
+}
+
+#new input[type="submit"] {
+    height: 30px;
+    margin: 1px 0;
+    position: absolute;
+    right: 5px;
+    width: 30px;
+}

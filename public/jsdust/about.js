@@ -1,0 +1,1 @@
+(function(){dust.register("public/templates/about.dust",body_0);function body_0(chk,ctx){return chk.write("<h1>About</h1><p>Shameless self-promotion goes here :p</p><p><a href=\"/landing\" class=\"proceed\">Home</a></p>");}return body_0;})();
