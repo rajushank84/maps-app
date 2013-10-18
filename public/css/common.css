@@ -30,6 +30,10 @@ section#landing {
     width: 100%;
 }
 
+#new {
+    margin: 0;
+}
+
 .subsection {
     display: none;
 }
