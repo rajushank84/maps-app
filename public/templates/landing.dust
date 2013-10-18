@@ -1,7 +1,7 @@
 
     <div id="new">
         <form id="addNew" action="/doAddItem" method="POST">
-            <input type="text" placeholder="Post new ad..." id="newItemName" name="name" />
+            <input type="text" placeholder="Post new ad..." id="newItemName" name="content" />
             <input type="submit" value="+" />
         </form>
     </div>

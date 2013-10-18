@@ -12,6 +12,8 @@ define([
         renderTemplate: function (json, callback) {
             var that = this;
 
+            this.json = json;
+            
             TemplateHelper.renderTemplate(json.viewName, json, function(out) {
                 if(that.el) {
                     $(that.el).html(out);

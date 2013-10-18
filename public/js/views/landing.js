@@ -14,6 +14,8 @@ define([
 
 			map: null,
 
+			pos: {},
+
 			events: {
 				'click .del': 'deleteItem',
 				'submit #addNew': 'addNew',
@@ -26,7 +28,7 @@ define([
 			deleteItem: function(event) {
 				var thisForm = $(event.target).parents('form')[0];
 
-				this.doAction(thisForm.action, $(thisForm), event)
+				this.doAction(thisForm.action, $(thisForm), event);
 			},
 
 			addNew: function(event) {
@@ -40,11 +42,15 @@ define([
 			},
 			
 			doAction: function(action, $form, event, callback) {
-				var that = this;
+				var that = this,
+					formData = $form.serializeArray();
 
 				$('body').addClass('loading');
 
-				$.post(action, $form.serialize(), function(json){
+				formData.push({name: "lb", value: this.pos.lb});
+				formData.push({name: "mb", value: this.pos.mb});
+
+				$.post(action, formData, function(json){
 					that.renderTemplate(json);
 					$('body').removeClass('loading');
 
@@ -52,14 +58,13 @@ define([
 						callback();
 					}
 				});
-				
-				event.preventDefault();
+
+				event.preventDefault();				
 			},
 
 			initializeMap: function() {
 			    var mapOptions = {
 			          zoom: 12,
-			          //center: new google.maps.LatLng(-34.397, 150.644),
 			          mapTypeId: google.maps.MapTypeId.ROADMAP
 			        },
 			        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions),
@@ -68,32 +73,32 @@ define([
 			        i,
 			        that = this;
 
-			    ads = [
-					{
-						pos: {lb: 37.355285, mb: -121.906013},
-						content: "Honda Civic wheels for sale"
-					},
-					{
-						pos: {lb: 37.344641,
-						mb: -121.932821},
-						content: "Homemade cookies"	
-					},
-					{
-						pos: {lb: 37.396823,
-						mb: -121.958728},
-						content: "Moving sale - everything must go. Furniture, household items"
-					},
-					{
-						pos: {lb: 37.427911,
-						mb: -121.880107},
-						content: "Baby stroller suitable for 1 to 3 year-olds"
-					},
-					{
-						pos: {lb: 37.379024,
-						mb: -121.981544},
-						content: "Want to buy - used vacuum cleaner less than $75"
-					}
-				];
+				// dummy data for testing locally without a mongodb connection
+				/*			    ads = [
+				{
+					"lb": "37.355285", "mb": "-121.906013",
+					"content": "Honda Civic wheels for sale"
+				},
+				{
+					"lb": "37.344641", "mb": "-121.932821",
+					"content": "Homemade cookies"	
+				},
+				{
+					"lb": "37.396823", "mb": "-121.958728",
+					"content": "Moving sale - everything must go. Furniture, household items"
+				},
+				{
+					"lb": "37.427911", "mb": "-121.880107",
+					"content": "Baby stroller suitable for 1 to 3 year-olds"
+				},
+				{
+					"lb": "37.379024", "mb": "-121.981544",
+					"content": "Want to buy - used vacuum cleaner less than $75"
+				}
+								];
+				*/
+
+				ads = this.json.data.ads;
 
 			    // Try HTML5 geolocation
 			    if (navigator.geolocation) {
@@ -102,9 +107,13 @@ define([
 			                position.coords.longitude);
 
 			            map.setCenter(pos);
-						for(i=0; i<ads.length; i++) {
-							that.createBox(ads[i].pos.lb, ads[i].pos.mb, ads[i].content);
 
+			            // for POSTS that happen from here
+			            that.pos.lb = pos.lb;
+			            that.pos.mb = pos.mb;
+
+						for(i=0; i<ads.length; i++) {
+							that.createBox(ads[i].lb, ads[i].mb, ads[i].content);
 				         }
 
 			            map.setCenter(pos);
@@ -114,7 +123,7 @@ define([
 			    } else {
 			        handleNoGeolocation();
 			    }
-			    
+
 			    this.map = map;
 			},
 

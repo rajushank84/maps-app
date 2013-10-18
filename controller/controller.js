@@ -14,7 +14,7 @@ module.exports = function(app) {
 
 	app.post('/doAddItem', function(req, res) {
 		var data = {};
-		data.name = req.body.name;
+		data = req.body;
 
 		dataUtils.saveItem(data, function(){
 			renderOutput(req, res, 'landing', 'Added');
@@ -43,7 +43,7 @@ module.exports = function(app) {
 				status: status,
 				baseTemplate: 'base',
 				data: {
-					items: allTheItems
+					ads: allTheItems
 				}
 			};
 	
