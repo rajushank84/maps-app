@@ -107,14 +107,9 @@ define([
 			                position.coords.longitude);
 
 			            map.setCenter(pos);
-
 			            // for POSTS that happen from here
-			            that.pos.lb = pos.lb;
-			            that.pos.mb = pos.mb;
-
-						for(i=0; i<ads.length; i++) {
-							that.createBox(ads[i].lb, ads[i].mb, ads[i].content);
-				         }
+			            that.pos.lb = pos.ob;
+			            that.pos.mb = pos.pb;
 
 			            map.setCenter(pos);
 			        }, function () {
@@ -125,6 +120,25 @@ define([
 			    }
 
 			    this.map = map;
+
+			    i=0;
+
+			    function createInfoBox() {
+
+			    	// yes these are actually strings with values of "undefined" - not sure where those values came from!
+			    	if(ads[i].lb && ads[i].mb && ads[i].lb !== "undefined" && ads[i].mb !== "undefined") {
+						that.createBox(ads[i].lb, ads[i].mb, ads[i].content);
+					}
+
+					i++;
+					
+					if(i<ads.length) {
+						setTimeout(createInfoBox, 100);
+					}
+			    }
+
+			    setTimeout(createInfoBox, 100);
+
 			},
 
 			createBox: function(lat, lon, html) {
